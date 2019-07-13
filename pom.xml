@@ -91,15 +91,13 @@
 	<distributionManagement>
 	    <repository>
 	      <id>nexus</id>
-
-	      <url>http://13.235.115.235:8081/repository/balu-release/</url>
-	      <name>Mithun Technologies Releases Nexus Repository</name>
-	   
-	    </repository>
+		<name>Mithun Technologies Releases Nexus Repository</name>
+	      	<url>http://13.235.115.235:8081/repository/Selva_Releases/</url>
+	      </repository>
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Mithun Technologies Snapshot Nexus Repository </name>
-	      <url>http://13.235.115.235:8081/repository/balu/</url>
+	      <url>http://13.235.115.235:8081/repository/Selva-Snapshot/</url>
 	    </snapshotRepository>
 	</distributionManagement>
 	
