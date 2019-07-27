@@ -23,9 +23,10 @@
 		<spring.version>5.0.2.RELEASE</spring.version>
 		<junit.version>4.12</junit.version>
 		<log4j.version>1.2.17</log4j.version>
-		<sonar.host.url>http://13.127.106.174:9000</sonar.host.url>
-		<sonar.login>54eff97c1d382e0d88907b570657dc89aef10926</sonar.login>
-		<!-- <sonar.password>admin</sonar.password> -->
+		<sonar.host.url>http://13.232.35.105:9000</sonar.host.url>
+		<sonar.login>admin</sonar.login>
+		<sonar.password>admin</sonar.password> 
+		
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -92,12 +93,12 @@
 	    <repository>
 	      <id>nexus</id>
 		<name>Mithun Technologies Releases Nexus Repository</name>
-	      	<url>http://35.154.4.89:8081/repository/Selva_Releases/</url>
+	      	<url>http://13.234.120.131:8081/repository/amazon-release/</url>
 	      </repository>
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Mithun Technologies Snapshot Nexus Repository </name>
-	      <url>http://35.154.4.89:8081/repository/Selva-Snapshot/</url>
+	      <url>http://13.234.120.131:8081/repository/amazon-project/</url>
 	    </snapshotRepository>
 	</distributionManagement>
 	
