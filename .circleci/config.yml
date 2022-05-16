@@ -28,7 +28,6 @@ jobs:
           command: mvn test
       #Upload artifacts
     working_directory: /tmp
-    steps:
       - run:
           name: Creating Dummy Artifacts
           command: |
