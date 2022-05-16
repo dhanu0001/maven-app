@@ -30,9 +30,9 @@ jobs:
           name: Creating Dummy Artifacts
           working_directory: /home/circleci/project/target
           command: |
-            echo "maven-web-application.war" > /tmp/artifact-1;
+            cp -r *.war /tmp/artifact-1;
             mkdir /tmp/artifacts;
-            echo "/home/circleci/project/target/maven-web-application.war" > /tmp/artifacts/artifact-2;
+            cp -r "/home/circleci/project/target/maven-web-application.war" > /tmp/artifacts/artifact-2;
 
       - store_artifacts:
           path: /tmp/artifact-1
