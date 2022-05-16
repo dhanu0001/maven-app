@@ -31,7 +31,7 @@ jobs:
           working_directory: /home/circleci/project/target
           command: |
             mkdir /tmp/artifacts;
-            cp -r "/home/circleci/project/target/*.war" /tmp/artifacts/artifacts;
+            cp -r "/home/circleci/project/target/maven-web-application.war" /tmp/artifacts;
 
       - store_artifacts:
           path: /tmp/artifact-1
