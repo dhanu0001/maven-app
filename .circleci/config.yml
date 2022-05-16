@@ -28,11 +28,11 @@ jobs:
           command: mvn -B -DskipTests clean package
       - run:
           name: Creating Dummy Artifacts
-          working_directory: /tmp
+          working_directory: /home/circleci/project/target
           command: |
-            echo "my artifact file" > /tmp/artifact-1;
+            echo "maven-web-application.war" > /tmp/artifact-1;
             mkdir /tmp/artifacts;
-            echo "my artifact files in a dir" > /tmp/artifacts/artifact-2;
+            echo "/home/circleci/project/target/maven-web-application.war" > /tmp/artifacts/artifact-2;
 
       - store_artifacts:
           path: /tmp/artifact-1
