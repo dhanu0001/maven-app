@@ -51,10 +51,3 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-and-test
-    deploy:
-    steps:
-      - checkout
-      - run:
-          name: Deploy Master to Heroku
-          command: |
-            git push https://heroku:54e92850-ffe9-45f4-b733-511fbead9b93@git.heroku.com/maven-web-application.git master
