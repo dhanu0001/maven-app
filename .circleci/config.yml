@@ -52,13 +52,6 @@ orbs:
 workflows:
   publish-release-tag:
     jobs:
-      - tag-and-release:
-          context: orb-publishing
-          filters:
-            branches:
-              only: main
-          requires:
-            - publish-changelog
     when:
       and:
         - equal:
