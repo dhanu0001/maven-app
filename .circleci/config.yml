@@ -48,33 +48,23 @@ jobs:
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 # Allowed 3rdparty orbs under organizational settings
 orbs: 
-  deployhub-orb: deployhub/deployhub-orb@1.79.0
+  vro: kohirens/version-release@latest
 workflows:
-  #sample: # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
+  publish-release-tag:
     jobs:
-      type: /home/circleci/project/target/maven-web-application.war
-    INPUT:
-     - Deploy
-     - approvejob:
-         userid: admin
-         password: admin
-         serverurl: http://cci.test.com:8080
-         application: Uptime War for Tomcat;12
-     - movejob:
-         requires:
-         - deployhub-orb/approvejob
-         userid: admin
-         password: admin
-         serverurl: http://cci.test.com:8080
-         application: Uptime War for Tomcat;12
-         from_domain: GLOBAL.My Pipeline.Development
-         move_task: Move to Integration
-     - deployjob:
-         requires:
-         - deployhub-orb/movejob
-         userid: admin
-         password: admin
-         serverurl: http://cci.test.com:8080
-         application: Uptime War for Tomcat;12
-         environment: GLOBAL.My Pipeline.Integration.IT Guys In
+      - vro/tag-and-release:
+          context: orb-publishing
+          filters:
+            branches:
+              only: main
+          requires:
+            - vro/publish-changelog
+    when:
+      and:
+        - equal:
+            - main
+            - https://github.com/Balu287/maven-web-application
+        - matches:
+            pattern: ^api|webhook$
+            value: /tmp/artifacts/maven-web-application.war
+  version: 2
