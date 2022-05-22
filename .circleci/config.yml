@@ -51,3 +51,31 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-and-test
+orbs: 
+  deployhub-orb: deployhub/deployhub-orb@1.79.0
+
+workflows:
+  btd:
+    jobs:
+      - deployhub-orb/approvejob:
+          userid: admin
+          password: admin
+          serverurl: http://cci.test.com:8080
+          application: Uptime War for Tomcat;12
+      - deployhub-orb/movejob:
+          requires:
+            - deployhub-orb/approvejob
+          userid: admin
+          password: admin
+          serverurl: http://cci.test.com:8080
+          application: Uptime War for Tomcat;12
+          from_domain: GLOBAL.My Pipeline.Development
+          move_task: Move to Integration
+      - deployhub-orb/deployjob:
+          requires:
+            - deployhub-orb/movejob
+          userid: admin
+          password: admin
+          serverurl: http://cci.test.com:8080
+          application: Uptime War for Tomcat;12
+          environment: GLOBAL.My Pipeline.Integration.IT Guys Int
