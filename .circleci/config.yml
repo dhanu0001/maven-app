@@ -52,13 +52,13 @@ orbs:
 workflows:
   publish-release-tag:
     jobs:
-      - vro/tag-and-release:
+      - tag-and-release:
           context: orb-publishing
           filters:
             branches:
               only: main
           requires:
-            - vro/publish-changelog
+            - publish-changelog
     when:
       and:
         - equal:
