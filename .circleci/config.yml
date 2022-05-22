@@ -46,6 +46,7 @@ jobs:
        
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+# Allowed 3rdparty orbs under organizational settings
 orbs: 
   deployhub-orb: deployhub/deployhub-orb@1.79.0
 workflows:
