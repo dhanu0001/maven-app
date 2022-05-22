@@ -17,9 +17,7 @@
 		<url>http://mithuntechnologies.com/</url>
 	</organization>
 <project>
- 	 ...
   <build>
- 	   ...
     <plugins>
   	    <plugin>
     	    <groupId>com.heroku.sdk</groupId>
