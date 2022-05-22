@@ -16,17 +16,16 @@
 		<name>Mithun Technologies</name>
 		<url>http://mithuntechnologies.com/</url>
 	</organization>
-	<project>
+	
   	  <build>
-    	  <plugins>
-  	    <plugin>
-    	    <groupId>com.heroku.sdk</groupId>
-     	    <artifactId>heroku-maven-plugin</artifactId>
-     	    <version>3.0.3</version>
-    	  </plugin>
+    	    <plugins>
+  	      <plugin>
+    	      <groupId>com.heroku.sdk</groupId>
+     	      <artifactId>heroku-maven-plugin</artifactId>
+     	      <version>3.0.3</version>
+    	    </plugin>
     	  </plugins>
   	</build>
-	</project>
 
 	<properties>
 		<!-- versions -->
