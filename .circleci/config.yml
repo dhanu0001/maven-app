@@ -53,26 +53,28 @@ workflows:
   #sample: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
-      - Deploy
-      - deployhub-orb/approvejob:
-          userid: admin
-          password: admin
-          serverurl: http://cci.test.com:8080
-          application: Uptime War for Tomcat;12
-      - deployhub-orb/movejob:
-          requires:
-            - deployhub-orb/approvejob
-          userid: admin
-          password: admin
-          serverurl: http://cci.test.com:8080
-          application: Uptime War for Tomcat;12
-          from_domain: GLOBAL.My Pipeline.Development
-          move_task: Move to Integration
-      - deployhub-orb/deployjob:
-          requires:
-            - deployhub-orb/movejob
-          userid: admin
-          password: admin
-          serverurl: http://cci.test.com:8080
-          application: Uptime War for Tomcat;12
-          environment: GLOBAL.My Pipeline.Integration.IT Guys Int
+      type: /home/circleci/project/target/maven-web-application.war
+    INPUT:
+     - Deploy
+     - approvejob:
+         userid: admin
+         password: admin
+         serverurl: http://cci.test.com:8080
+         application: Uptime War for Tomcat;12
+     - movejob:
+         requires:
+         - deployhub-orb/approvejob
+         userid: admin
+         password: admin
+         serverurl: http://cci.test.com:8080
+         application: Uptime War for Tomcat;12
+         from_domain: GLOBAL.My Pipeline.Development
+         move_task: Move to Integration
+     - deployjob:
+         requires:
+         - deployhub-orb/movejob
+         userid: admin
+         password: admin
+         serverurl: http://cci.test.com:8080
+         application: Uptime War for Tomcat;12
+         environment: GLOBAL.My Pipeline.Integration.IT Guys In
