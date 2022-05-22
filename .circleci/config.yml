@@ -43,16 +43,8 @@ jobs:
       - run:
           name: Test
           command: mvn test
-
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
-workflows:
-  sample: # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
-    jobs:
-      - build-and-test
-orbs: 
-  deployhub-orb: deployhub/deployhub-orb@1.79.0
+       orbs: 
+       deployhub-orb: deployhub/deployhub-orb@1.79.0
 
    
       - deployhub-orb/approvejob:
@@ -77,3 +69,12 @@ orbs:
           serverurl: http://cci.test.com:8080
           application: Uptime War for Tomcat;12
           environment: GLOBAL.My Pipeline.Integration.IT Guys Int
+
+
+# Invoke jobs via workflows
+# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+workflows:
+  sample: # This is the name of the workflow, feel free to change it to better match your workflow.
+    # Inside the workflow, you define the jobs you want to run.
+    jobs:
+      - build-and-test
