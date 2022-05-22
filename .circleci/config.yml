@@ -43,34 +43,7 @@ jobs:
       - run:
           name: Test
           command: mvn test
-       orbs: 
-       deployhub-orb: deployhub/deployhub-orb@1.79.0
-
-   
-      - deployhub-orb/approvejob:
-          userid: admin
-          password: admin
-          serverurl: http://cci.test.com:8080
-          application: Uptime War for Tomcat;12
-      - deployhub-orb/movejob:
-          requires:
-            - deployhub-orb/approvejob
-          userid: admin
-          password: admin
-          serverurl: http://cci.test.com:8080
-          application: Uptime War for Tomcat;12
-          from_domain: GLOBAL.My Pipeline.Development
-          move_task: Move to Integration
-      - deployhub-orb/deployjob:
-          requires:
-            - deployhub-orb/movejob
-          userid: admin
-          password: admin
-          serverurl: http://cci.test.com:8080
-          application: Uptime War for Tomcat;12
-          environment: GLOBAL.My Pipeline.Integration.IT Guys Int
-
-
+       
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
