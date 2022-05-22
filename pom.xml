@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	
-	<groupId>com.mt</groupId>
+	<groupId>com.heroku.sdk</groupId>
 	<artifactId>maven-web-application</artifactId>
 	<packaging>war</packaging>
 	<version>1.5-SNAPSHOT</version>
@@ -114,7 +114,6 @@
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
-				<groupId>com.heroku.sdk</groupId>
                                 <artifactId>heroku-maven-plugin</artifactId>
                                 <version>3.0.3</version>
 			</plugin>
