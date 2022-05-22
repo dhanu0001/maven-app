@@ -51,6 +51,11 @@ orbs:
   version-release: kohirens/version-release@1.1.0
 workflows:
   publish-release-tag:
+   - vro/tag-and-release:
+     context: orb-publishing
+          filters:
+            branches:
+              only: main
     jobs:
     when:
       and:
