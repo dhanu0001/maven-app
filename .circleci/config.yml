@@ -54,8 +54,6 @@ workflows:
 orbs: 
   deployhub-orb: deployhub/deployhub-orb@1.79.0
 
-workflows:
-  btd:
     jobs:
       - deployhub-orb/approvejob:
           userid: admin
