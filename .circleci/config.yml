@@ -13,11 +13,11 @@ jobs:
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/openjdk
     docker:
       - image: cimg/openjdk:11.0
-      
+      - image: python:3.6.3-jessie
         auth:
           username: sivbalas
           password: India@123
-      Add steps to the job
+    # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       # Checkout the code as the first step.
@@ -30,8 +30,9 @@ jobs:
           name: Creating Dummy Artifacts
           working_directory: /home/circleci/project/target
           command: |
+            echo "maven-web-application.war" > /tmp/artifact-1;
             mkdir /tmp/artifacts;
-            cp -r "/home/circleci/project/target/maven-web-application.war" /tmp/artifacts;
+            echo "/home/circleci/project/target/maven-web-application.war" > /tmp/artifacts/artifact-2;
 
       - store_artifacts:
           path: /tmp/artifact-1
@@ -43,13 +44,11 @@ jobs:
       - run:
           name: Test
           command: mvn test
-       
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
-    - build-and-test
+      - build-and-test
