@@ -14,12 +14,16 @@ jobs:
     docker:
       - image: cimg/openjdk:11.0
       - image: python:3.6.3-jessie
+      - image: duanecilliers/alpine-composer-rsync:latest
         auth:
           username: sivbalas
           password: India@123
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
+      - add_ssh_keys:
+            fingerprints:
+            - "43:63:54:8d:49:ee:83:6c:d9:03:59:24:07:ae:7f:58"
       # Checkout the code as the first step.
       - checkout
       # Use mvn clean and package as the standard maven build phase
@@ -32,7 +36,11 @@ jobs:
           command: |
             mkdir /tmp/artifacts;
             cp -r "/home/circleci/project/target/maven-web-application.war" /tmp/artifacts;
-            scp -r /home/circleci/project/target/maven-web-application.war ec2-user@ec2-13-126-49-158.ap-south-1.compute.amazonaws.com:/tmp
+      - run:
+          name: Deploy Over SSH
+          command: |
+            rsync -e ssh -avvz --exclude=node_modules /home/circleci/project/target/maven-web-application.war ec2-user@ec2-13-126-49-158.ap-south-1.compute.amazonaws.com:/tmp
+       
 
       - store_artifacts:
           path: /tmp/artifacts
