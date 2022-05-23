@@ -6,6 +6,11 @@ version: 2.1
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   # Below is the definition of your job to build and test your app, you can rename and customize it as you want.
+  deploy-job:
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "43:63:54:8d:49:ee:83:6c:d9:03:59:24:07:ae:7f:58"
   build-and-test:
     # These next lines define a Docker executor: https://circleci.com/docs/2.0/executor-types/
     # You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
