@@ -56,8 +56,4 @@ workflows:
   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
-    deploy-job:
-    steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "43:63:54:8d:49:ee:83:6c:d9:03:59:24:07:ae:7f:58"
+    - build-and-test
