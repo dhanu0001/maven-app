@@ -26,11 +26,11 @@ jobs:
       - run:
           name: Build
           command: mvn -B -DskipTests clean package
+      - run:
+          name: Creating Dummy Artifacts
           - add_ssh_keys:
               fingerprints:
                 - "43:63:54:8d:49:ee:83:6c:d9:03:59:24:07:ae:7f:58"
-      - run:
-          name: Creating Dummy Artifacts
           working_directory: /home/circleci/project/target
           command: |
             mkdir /tmp/artifacts;
