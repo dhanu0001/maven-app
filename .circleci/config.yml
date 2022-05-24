@@ -13,24 +13,16 @@ jobs:
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/openjdk
     docker:
       - image: cimg/openjdk:11.0
-      - image: python:3.6.3-jessie
-        auth:
-          username: sivbalas
-          password: India@123
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - add_ssh_keys:
-            fingerprints:
-            - "43:63:54:8d:49:ee:83:6c:d9:03:59:24:07:ae:7f:58"
-      # Checkout the code as the first step.
+              fingerprints:
+              - "75:2a:c8:12:b8:13:05:9c:93:6c:92:02:59:1f:d6:9f"
       - checkout
-      # Use mvn clean and package as the standard maven build phase
       - run:
           name: Build
           command: mvn -B -DskipTests clean package
       - run:
-          name: Creating Dummy Artifacts
+          name: Creating Artifacts
           working_directory: /home/circleci/project/target
           command: |
             mkdir /tmp/artifacts;
@@ -38,25 +30,9 @@ jobs:
       - run:
           name: Deploy Over SSH
           command: |
-            ssh -o StrictHostKeyChecking=no ec2-user@ec2-13-126-49-158.ap-south-1.compute.amazonaws.com
-            scp -r /home/circleci/project/target/maven-web-application.war ec2-user@ec2-13-126-49-158.ap-south-1.compute.amazonaws.com:/tmp
-       
+             ssh -o StrictHostKeyChecking=no http://ec2-54-163-218-221.compute-1.amazonaws.com
+      - store_artifacts:
+          path: /tmp/artifacts
 
       - store_artifacts:
           path: /tmp/artifacts
-          
-      - store_artifacts:
-          path: /tmp/artifacts
-          
-      # Then run your tests!
-      - run:
-          name: Test
-          command: mvn test
-
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
-workflows:
-  sample: # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
-    jobs:
-      - build-and-test
