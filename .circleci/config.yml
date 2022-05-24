@@ -16,7 +16,7 @@ jobs:
     steps:
       - add_ssh_keys:
               fingerprints:
-              - "98:a0:d7:5f:bf:d5:b2:66:28:08:64:3c:51:c3:a5:48"
+              - "75:2a:c8:12:b8:13:05:9c:93:6c:92:02:59:1f:d6:9f"
       - checkout
       - run:
           name: Build
@@ -30,7 +30,7 @@ jobs:
       - run:
           name: Deploy Over SSH
           command: |
-             ssh -o StrictHostKeyChecking=no http://ec2-54-163-218-221.compute-1.amazonaws.com
+             ssh -o StrictHostKeyChecking=no circleuser@ec2-54-163-218-221.compute-1.amazonaws.com
       - store_artifacts:
           path: /tmp/artifacts
 
