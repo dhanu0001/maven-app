@@ -37,6 +37,9 @@ jobs:
 
       - store_artifacts:
           path: /tmp/artifacts
+      - run:
+          name: Test
+          command: mvn test
 workflows:
   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
