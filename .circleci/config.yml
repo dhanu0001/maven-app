@@ -13,6 +13,7 @@ jobs:
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/openjdk
     docker:
       - image: cimg/openjdk:11.0
+      - image: python:3.6.3-jessie
     steps:
       - add_ssh_keys:
               fingerprints:
