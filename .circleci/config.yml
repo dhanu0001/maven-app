@@ -30,7 +30,7 @@ jobs:
       - run:
           name: Deploy Over SSH
           command: |
-             sudo ssh@circleuser@ec2-3-82-36-101.compute-1.amazonaws.com
+             sudo ssh circleuser@ec2-3-82-36-101.compute-1.amazonaws.com
       - store_artifacts:
           path: /tmp/artifacts
 
