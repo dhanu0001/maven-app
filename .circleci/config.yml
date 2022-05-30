@@ -14,9 +14,9 @@ jobs:
     docker:
       - image: cimg/openjdk:11.0
     steps:
-      - add_ssh_keys:
-              fingerprints:
-              - "bb:9a:89:e5:bf:58:03:7f:af:d5:66:36:ee:af:89:10"
+      #- add_ssh_keys:
+              #fingerprints:
+              #- "bb:9a:89:e5:bf:58:03:7f:af:d5:66:36:ee:af:89:10"
       - checkout
       - run:
           name: Build
@@ -30,7 +30,7 @@ jobs:
       - run:
           name: Deploy Over SSH
           command: |
-             sudo ssh -o StrictHostKeyChecking=no circleuser@ec2-3-82-36-101.compute-1.amazonaws.com
+             sudo ssh -o StrictHostKeyChecking=no root@HOSTNAME
       - store_artifacts:
           path: /tmp/artifacts
 
