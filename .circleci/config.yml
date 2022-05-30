@@ -30,7 +30,7 @@ jobs:
       - run:
           name: Deploy Over SSH
           command: |
-             sudo ssh -o StrictHostKeyChecking=no circleuser@ec2-54-173-232-148.compute-1.amazonaws.com
+             sudo ssh -o StrictHostKeyChecking=no circleuser@54.173.232.148
       - store_artifacts:
           path: /tmp/artifacts
 
