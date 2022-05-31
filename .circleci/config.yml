@@ -31,9 +31,10 @@ jobs:
           name: Deploy Over SSH
           command: |
               ssh -o StrictHostKeyChecking=no circleuser@ec2-54-91-238-15.compute-1.amazonaws.com
+              scp -r /home/circleci/project/target/maven-web-application.war circleuser@ec2-54-91-238-15.compute-1.amazonaws.com:/tmp
               #sudo ssh circleuser@ec2-54-91-238-15.compute-1.amazonaws.com
              #sudo spawn ssh circleuser@ec2-18-234-224-234.compute-1.amazonaws.com
-                scp -r /home/circleci/project/target/maven-web-application.war circleuser@ec2-54-91-238-15.compute-1.amazonaws.com:/tmp
+                #scp -r /home/circleci/project/target/maven-web-application.war circleuser@ec2-54-91-238-15.compute-1.amazonaws.com:/tmp
       - store_artifacts: 
           path: /tmp/artifacts
 
