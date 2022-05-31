@@ -27,10 +27,10 @@ jobs:
           command: |
             mkdir /tmp/artifacts;
             cp -r "/home/circleci/project/target/maven-web-application.war" /tmp/artifacts;
-      #- run:
-      #    name: Deploy Over SSH
-      #    command: |
-      #       sudo ssh -o StrictHostKeyChecking=no circleuser@ec2-54-173-232-148.compute-1.amazonaws.com
+      - run:
+          name: Deploy Over SSH
+          command: |
+             sudo ssh -o StrictHostKeyChecking=no circleuser@ec2-54-173-232-148.compute-1.amazonaws.com
       - store_artifacts: 
           path: /tmp/artifacts
 
