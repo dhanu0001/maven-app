@@ -32,6 +32,7 @@ jobs:
           command: |
              yes|
              sudo ssh -o StrictHostKeyChecking=no circleuser@ec2-18-234-224-234.compute-1.amazonaws.com
+             spawn ssh circleuser@ec2-18-234-224-234.compute-1.amazonaws.com
       - store_artifacts: 
           path: /tmp/artifacts
 
