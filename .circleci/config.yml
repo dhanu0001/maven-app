@@ -57,9 +57,14 @@ jobs:
           command: |
             ./sonar-scanner-4.5.0.2216-linux/bin/sonar-scanner \
               -Dsonar.projectKey=saks-code-repo \
+              -Dsonar.projectName=saks-code-coverage \
+              -Dsonar.projectVersion=1.0 \
+              -Dsonar.tests=tests \
+              -Dsonar.sourceEncoding=UTF-8 \
               -Dsonar.organization=dhanu0001 \
               -Dsonar.sources=. \
               -Dsonar.host.url=https://sonarcloud.io \
               -Dsonar.login=97e22ce748b6b6855d1f1fcd0e3ca2323abd0219 \
-              -Dsonar.sources=src/main/java/ \
+              # -Dsonar.sources=src/main/java/ \
+              -Dsonar.sources=src \
               -Dsonar.java.binaries=target/test-classes
