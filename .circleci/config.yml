@@ -46,7 +46,7 @@ jobs:
             mvn test
             mvn checkstyle:checkstyle
             curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project >result.json
-            mvn sonar:sonar -Dsonar.login=$LOGIN -Dsonar.host.url=$HOST -Dsonar.projectKey=$Project -Dsonar.organization=$Organization -Dsonar.java.binaries=target/test-classes/com/visualpathit/account/controllerTest/ -Dsonar.junit.reportsPath=target/surefire-reports/ -Dsonar.jacoco.reportsPath=target/jacoco.exec -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml
+            mvn sonar:sonar -Dsonar.login=$LOGIN -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=saks-code-repo -Dsonar.organization=dhanu0001 -Dsonar.java.binaries=target/test-classes/com/visualpathit/account/controllerTest/ -Dsonar.junit.reportsPath=target/surefire-reports/ -Dsonar.jacoco.reportsPath=target/jacoco.exec -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml
             ls -lrt /home/circleci/project/target/
 
             # mvn install -DskipTests
@@ -62,4 +62,4 @@ jobs:
               -Dsonar.host.url=https://sonarcloud.io \
               -Dsonar.login=97e22ce748b6b6855d1f1fcd0e3ca2323abd0219 \
               -Dsonar.sources=src/main/java/ \
-              -Dsonar.java.binaries=target/classes
+              -Dsonar.java.binaries=target/test-classes
