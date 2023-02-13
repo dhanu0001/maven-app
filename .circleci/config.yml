@@ -59,7 +59,7 @@ jobs:
               -Dsonar.projectKey=saks-code-repo \
               -Dsonar.projectName=saks-code-coverage \
               -Dsonar.projectVersion=1.0 \
-              -Dsonar.tests=tests \
+              # -Dsonar.tests=tests \
               -Dsonar.sourceEncoding=UTF-8 \
               -Dsonar.organization=dhanu0001 \
               -Dsonar.sources=. \
