@@ -57,7 +57,7 @@ jobs:
           command: |
             ./sonar-scanner-4.5.0.2216-linux/bin/sonar-scanner \
               -Dsonar.projectKey=saks-code-repo \
-              -Dsonar.projectName=saks-code-coverage \
+              # -Dsonar.projectName=saks-code-coverage \
               -Dsonar.projectVersion=1.0 \
               # -Dsonar.tests=tests \
               -Dsonar.sourceEncoding=UTF-8 \
